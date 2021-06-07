@@ -7,12 +7,6 @@ sudo timedatectl set-timezone Europe/Rome
 sudo ip route add 172.17.0.0/24 via 10.235.1.109
 sudo ip route add 172.18.0.0/24 via 10.235.1.109
 
-# sudo useradd eval --create-home --shell /bin/bash
-# sudo su - eval
-# mkdir .ssh
-# chmod 700 ~/.ssh
-# exit
-
 # Create ssh keys for eval
 ssh-keygen -f ~/.ssh/ssh_eval -t ecdsa -b 521 -N "" -q
 ssh-keygen -f ~/.ssh/ssh_admin -t ecdsa -b 521 -N "" -q
@@ -49,11 +43,6 @@ openstack router create router1
 openstack router add subnet router1 subnet1
 openstack router set --external-gateway public router1 
 
-
-# SEC_GROUP_WEB_ID=$(openstack security group create progetto-web-in --format json | jq -r -M '.id')
-# openstack security group rule create $SEC_GROUP_WEB_ID --project progetto --protocol tcp --dst-port 80:80 --remote-ip 0.0.0.0/0 
-# openstack security group rule create $SEC_GROUP_WEB_ID --project progetto --protocol tcp --dst-port 8080:8080 --remote-ip 0.0.0.0/0
-
 SEC_GROUP_SSH_ID=$(openstack security group create progetto-ssh-in --format json | jq -r -M '.id')
 openstack security group rule create $SEC_GROUP_SSH_ID --project progetto --protocol tcp --dst-port 22:22 --remote-ip 0.0.0.0/0
 
@@ -79,7 +68,6 @@ openstack server create \
 database-server
 
 openstack server add security group database-server progetto-ssh-in
-# openstack server add security group database-server progetto-web-in
 openstack server add security group database-server progetto-mysql-in
 
 DB_VOLUME_ID=$(openstack volume create --size 1 db-volume --format json | jq -r -M '.id')

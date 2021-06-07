@@ -1,0 +1,11 @@
+Scripts description
+
+openstack_init.sh - This script is used to initialize the IaaS VM, it sets up the routing, creates the OpenStack instance and configures it
+
+init_instance.sh - This is the script that is passed to the cloud-init tool in the OpenStack instance, it configures everything related to the instance and to the application database
+
+manage_db_backup.sh - This script is used to manage the backups for the database
+
+progetto_openrc.sh - This is the openrc file that contains the configuration for the admin user in the project "progetto"
+
+copy_scripts.sh - This script is used to copy the scripts mentioned above and this readme from the github repository to the home of the current user

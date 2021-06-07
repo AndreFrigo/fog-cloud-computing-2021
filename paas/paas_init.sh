@@ -8,11 +8,6 @@ sudo ip route add 172.24.4.0/24 via 10.235.1.209
 echo "Relax firewall to allow docker bridges to be reached from external networks"
 sudo iptables -I DOCKER-USER -i ens3 -j ACCEPT 
 
-# echo "Adding and switching to user eval"
-# sudo useradd eval --create-home --shell /bin/bash
-# sudo su - eval
-
-
 docker login -u fog2021gr09 -p M]ACjbw\$7WBbPm~
 
 echo "Creating cluster"

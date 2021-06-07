@@ -1,0 +1,7 @@
+Scripts description
+
+paas_init.sh - This script is used to initialize the PaaS VM, to create the kubernetes cluster and to create the deployment
+
+update_app.sh - This script is used to update and rollback the application in either environment
+
+copy_scripts.sh - This script is used to copy the scripts mentioned above and this readme from the github repository to the home of the current user
